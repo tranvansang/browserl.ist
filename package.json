@@ -8,7 +8,7 @@
     "deploy": "script/deploy",
     "start": "node ./bin/www",
     "start:prod": "PORT=8100 NODE_ENV=production pm2 start ./bin/www",
-    "stop:prod": "pm2 stop ./bin/www",
+    "stop:prod": "pm2 del ./bin/www",
     "test": "npm run lint"
   },
   "dependencies": {
