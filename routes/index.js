@@ -27,6 +27,7 @@ function getRegionCoverage(region, id, version) {
 
 /* GET home page. */
 router.get("/", (req, res) => {
+  res.setHeader('Cache-Control', 'no-cache');
   const query = req.query.q || "defaults";
   const queryHasIn = query.match(/ in ((?:alt-)?[A-Za-z]{2})(?:,|$)/);
 
