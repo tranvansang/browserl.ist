@@ -2,6 +2,15 @@ doctype html
 html(lang='en')
   head
     meta(charset="utf-8")
+    if NODE_ENV === 'production'
+      // Google Tag Manager
+      script.
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-TFQSLPN');
+      // End Google Tag Manager
     title browserl.ist: #{description}
     meta(name="description" content=description)
     meta(http-equiv="X-UA-Compatible" content="IE=Edge")
@@ -11,6 +20,11 @@ html(lang='en')
     link(rel='stylesheet', href='/stylesheets/tachyons.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body(class="sans-serif f4")
+    if NODE_ENV === 'production'
+      // Google Tag Manager (noscript)
+      noscript
+        iframe(src='https://www.googletagmanager.com/ns.html?id=GTM-TFQSLPN' height='0' width='0' style='display:none;visibility:hidden')
+      // End Google Tag Manager (noscript)
     block content
     div(class="pa5 f6 lh-copy")
       span(class="mr4 db di-ns mb2 mb0-ns") Hosted by #[a(href="https://transang.me") transang.me]

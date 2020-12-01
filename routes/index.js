@@ -27,7 +27,7 @@ function getRegionCoverage(region, id, version) {
 
 /* GET home page. */
 router.get("/", (req, res) => {
-  res.setHeader('Cache-Control', 'no-cache');
+  res.setHeader("Cache-Control", "no-cache");
   const query = req.query.q || "defaults";
   const queryHasIn = query.match(/ in ((?:alt-)?[A-Za-z]{2})(?:,|$)/);
 
@@ -47,6 +47,7 @@ router.get("/", (req, res) => {
       description:
         "A page to display compatible browsers from a browserslist string.",
       error: e,
+      NODE_ENV: process.env.NODE_ENV,
     });
   }
 
@@ -100,6 +101,7 @@ router.get("/", (req, res) => {
     description:
       "A page to display compatible browsers from a browserslist string.",
     region: region || "Global",
+    NODE_ENV: process.env.NODE_ENV,
   });
 });
 
